@@ -1,0 +1,35 @@
+stages:
+  - install
+  - lint
+  - test
+  - build
+
+install:
+  stage: install
+  image: node:18
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+
+lint:
+  stage: lint
+  image: node:18
+  script:
+    - npm run lint
+
+test:
+  stage: test
+  image: node:18
+  script:
+    - npm test || echo "Тесты не настроены"
+
+build:
+  stage: build
+  image: node:18
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/ 

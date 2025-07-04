@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.config.cjs --mode production",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "npx serve dist"
+    "preview": "npx serve dist",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^19.1.0",
