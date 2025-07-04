@@ -26,7 +26,7 @@ jobs:
         run: npm test || echo "No tests"
 
       - name: Build
-        run: npm run build:gh
+        run: npm run build
 
       - name: Show build log (if exists)
         run: cat npm-debug.log || echo "No build log"
@@ -51,7 +51,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build:gh
 
       - name: Show current directory and files
         run: |
