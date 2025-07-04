@@ -10,6 +10,8 @@ const env = process.env.NODE_ENV === 'production'
 
 const PUBLIC_PATH = (env && env.PUBLIC_PATH) || '/';
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
 module.exports = {
   entry: './src/main.tsx',
   output: {
