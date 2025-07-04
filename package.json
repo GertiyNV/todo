@@ -2,7 +2,7 @@
   "name": "todo-app",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://GertiyNV.github.io/todo/",
+  "homepage": "https://gertiynv.github.io/todo/",
   "type": "module",
   "scripts": {
     "dev": "webpack serve --config webpack.config.cjs --mode development",
