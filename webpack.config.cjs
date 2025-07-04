@@ -1,6 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const dotenv = require('dotenv');
+
+// Загружаем переменные окружения
+const env = process.env.NODE_ENV === 'production'
+  ? dotenv.config({ path: '.env.production' }).parsed
+  : dotenv.config({ path: '.env' }).parsed;
+
+const PUBLIC_PATH = (env && env.PUBLIC_PATH) || '/';
 
 module.exports = {
   entry: './src/main.tsx',
@@ -8,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
     clean: true,
-    publicPath: '/',
+    publicPath: PUBLIC_PATH,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -16,11 +24,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.(ts|tsx)$/,
         use: {
           loader: 'ts-loader',
           options: {
             configFile: 'tsconfig.app.json',
+            transpileOnly: true,
           },
         },
         exclude: /node_modules/,

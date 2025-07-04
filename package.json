@@ -7,11 +7,12 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.cjs --mode development",
     "build": "webpack --config webpack.config.cjs --mode production",
+    "build:gh": "NODE_ENV=production webpack --config webpack.config.cjs --mode production",
+    "deploy:gh": "npm run build:gh && gh-pages -d dist",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "npx serve dist",
-    "test": "jest",
-    "deploy": "gh-pages -d dist"
+    "test": "jest"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -19,6 +20,10 @@
     "sass": "^1.89.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@eslint/js": "^9.29.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -28,7 +33,9 @@
     "@types/react-dom": "^19.1.6",
     "@types/webpack-env": "^1.18.8",
     "@vitejs/plugin-react": "^4.5.2",
+    "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
+    "dotenv": "^17.0.1",
     "eslint": "^9.29.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
