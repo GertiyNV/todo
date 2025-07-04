@@ -5,7 +5,7 @@
   "homepage": "https://gertiynv.github.io/todo/",
   "type": "module",
   "scripts": {
-    "dev": "webpack serve --config webpack.config.cjs --mode development",
+    "dev": "NODE_ENV=development webpack serve --config webpack.config.cjs --mode development",
     "build": "webpack --config webpack.config.cjs --mode production",
     "build:gh": "NODE_ENV=production webpack --config webpack.config.cjs --mode production",
     "deploy:gh": "npm run build:gh && gh-pages -d dist",
