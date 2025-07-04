@@ -9,7 +9,7 @@ function App() {
       <div className="card">
         <CounterButton />
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR2
+          Edit <code>src/App.tsx</code> and save to test HMR3
         </p>
       </div>
       <p className="read-the-docs">
